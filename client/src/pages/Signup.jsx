@@ -17,7 +17,7 @@ function Signup() {
     try {
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "https://mockmate-1-xig2.onrender.com",
         {
           name,
           email,

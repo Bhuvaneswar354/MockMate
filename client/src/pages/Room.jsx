@@ -4,8 +4,9 @@ import { io } from "socket.io-client";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
 
-const socket = io("http://localhost:5000");
 
+
+const socket = io("https://mockmate-1-xig2.onrender.com");
 function Room() {
 
   const { roomId } = useParams();
@@ -244,7 +245,7 @@ function Room() {
 
       const response = await axios.post(
 
-        "http://localhost:5000/api/compiler/run",
+        const socket = io("https://mockmate-1-xig2.onrender.com"),
 
         {
 
