@@ -17,13 +17,13 @@ function Signup() {
     try {
 
       const response = await axios.post(
-        "https://mockmate-1-xig2.onrender.com",
-        {
-          name,
-          email,
-          password,
-        }
-      );
+  "https://mockmate-1-xig2.onrender.com/api/auth/signup",
+  {
+    name,
+    email,
+    password,
+  }
+);
 
       alert(response.data.message);
 
