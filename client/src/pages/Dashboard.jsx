@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+const username = localStorage.getItem("username");
 
 import { useState } from "react";
 
@@ -30,53 +30,44 @@ function Dashboard() {
 
   // CREATE ROOM
 
-  const createRoom = () => {
+const createRoom = () => {
 
-    if (!username) {
+  if (!username) {
 
-      alert("Please enter username");
+    alert("Please enter username");
 
-      return;
+    return;
 
-    }
+  }
 
+  const id = Math.random().toString(36).substring(2, 8);
 
+  navigate(`/room/${id}`, {
+    state: { username }
+  });
 
-    localStorage.setItem("username", username);
-
-
-
-    const id = Math.random().toString(36).substring(2, 8);
-
-    navigate(`/room/${id}`);
-
-  };
+};
 
 
 
 
   // JOIN ROOM
 
-  const joinRoom = () => {
+const joinRoom = () => {
 
-    if (!username || !roomId) {
+  if (!username || !roomId) {
 
-      alert("Please enter username and room ID");
+    alert("Please enter username and room ID");
 
-      return;
+    return;
 
-    }
+  }
 
+  navigate(`/room/${roomId}`, {
+    state: { username }
+  });
 
-
-    localStorage.setItem("username", username);
-
-
-
-    navigate(`/room/${roomId}`);
-
-  };
-
+};
 
 
 

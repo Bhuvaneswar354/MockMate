@@ -26,23 +26,24 @@ const setupSocket = (server) => {
 
     // JOIN ROOM
 
-    socket.on("join-room", (roomId) => {
+    socket.on("join-room", (data) => {
 
-      socket.join(roomId);
+  socket.join(data.roomId);
 
-      socket.roomId = roomId;
+  socket.roomId = data.roomId;
 
+  socket.username = data.username;
 
+  socket.to(data.roomId).emit("user-joined", {
+    socketId: socket.id,
+    username: data.username,
+  });
 
+  console.log(
+    `${data.username} joined room ${data.roomId}`
+  );
 
-      socket.to(roomId).emit("user-joined", socket.id);
-
-
-
-
-      console.log(`Joined Room: ${roomId}`);
-
-    });
+});
 
 
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { io } from "socket.io-client";
 import Editor from "@monaco-editor/react";
 import axios from "axios";
@@ -9,9 +9,12 @@ import axios from "axios";
 const socket = io("https://mockmate-1-xig2.onrender.com");
 function Room() {
 
-  const { roomId } = useParams();
+const { roomId } = useParams();
 
-  const username = localStorage.getItem("username");
+const location = useLocation();
+
+const username =
+  location.state?.username || "Guest";
 
   const myVideo = useRef();
 
@@ -82,13 +85,14 @@ function Room() {
 
 
   // JOIN ROOM
+useEffect(() => {
 
-  useEffect(() => {
+  socket.emit("join-room", {
+    roomId,
+    username,
+  });
 
-    socket.emit("join-room", roomId);
-
-  }, [roomId]);
-
+}, [roomId, username]);
 
 
 
