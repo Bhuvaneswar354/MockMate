@@ -239,29 +239,14 @@ function Room() {
       const selectedLanguage =
 
         languageMap[language];
-
-
-
-
-      const response = await axios.post(
-
-        const socket = io("https://mockmate-1-xig2.onrender.com"),
-
-        {
-
-          code: code,
-
-          language:
-
-            selectedLanguage.language,
-
-          versionIndex:
-
-            selectedLanguage.versionIndex,
-
-        }
-
-      );
+const response = await axios.post(
+  "https://mockmate-1-xig2.onrender.com/api/compiler/run",
+  {
+    code: code,
+    language: selectedLanguage.language,
+    versionIndex: selectedLanguage.versionIndex,
+  }
+);
 
 
 
