@@ -3,7 +3,7 @@ import Room from "./pages/Room";
 import ResumeInterview from "./pages/ResumeInterview";
 import Interviews from "./pages/Interviews";
 import Analytics from "./pages/Analytics";
-import ProtectedRoute from "./Components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Settings from "./pages/Settings";
 import Home from "./pages/Home";
 import Login from "./pages/Login";

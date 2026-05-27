@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 
-import DSAChart from "../Components/DSAChart";
+import DSAChart from "../components/DSAChart";
 
 function Dashboard() {
 
